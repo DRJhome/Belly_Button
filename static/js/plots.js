@@ -1,27 +1,3 @@
-function init() {
-    var selector = d3.select("#selDataset");
-
-    d3.json("./static/js/samples.json").then((data) => {
-        console.log(data);
-        var sampleNames = data.names;
-        sampleNames.forEach((sample) => {
-            selector
-                .append("option")
-                .text(sample)
-                .property("value", sample);
-        });
-    })
-}
-
-init();
-
-// optionChanged function is called in html
-function optionChanged(newSample) {
-    console.log(newSample);
-    buildMetadata(newSample);
-    //buildCharts(newSample);
-}
-
 // buildMetadata function called in optionChanged
 function buildMetadata(sample) {
     d3.json("./static/js/samples.json").then((data) => {
