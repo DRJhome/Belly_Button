@@ -1,26 +1,28 @@
-function init() {
+function init2() {
   var selector = d3.select("#selDataset");
 
   d3.json("./static/js/samples.json").then((data) => {
     console.log(data);
     var sampleNames = data.names;
+
     sampleNames.forEach((sample) => {
       selector
         .append("option")
         .text(sample)
         .property("value", sample);
-    });
-})}
-
-init();
-    // Use the first sample from the list to build the initial plots
+    }); 
     var firstSample = sampleNames[0];
     buildCharts(firstSample);
     buildMetadata(firstSample);
+  });
+}
+
+// Use the first sample from the list to build the initial plots
+
 
 
 // Initialize the dashboard
-init();
+init2();
 
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
