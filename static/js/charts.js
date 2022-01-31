@@ -94,7 +94,7 @@ function buildCharts(sample) {
     }];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title: "Top 10 Bacteria Cultures Found",
+      title: "<b>Top 10 Bacteria Cultures Found",
       yaxis: {
         tickmode: "array",
         tickvals: [0,1,2,3,4,5,6,7,8,9],
@@ -135,7 +135,7 @@ function buildCharts(sample) {
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
       title: "<b>Bacteria Cultures Per Sample",
-      xaxis: { title: "OTU ID" },
+      xaxis: { title: "<b>OTU ID" },
       automargin: true,
       hovermode: "closest"
     };
