@@ -94,7 +94,22 @@ function buildCharts(sample) {
     }];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title: "Top 10 Bacteria Cultures Found"
+      title: "Top 10 Bacteria Cultures Found",
+      yaxis: {
+        tickmode: "array",
+        tickvals: [0,1,2,3,4,5,6,7,8,9],
+        ticktext: yticks
+      },
+      annotations: [{
+        xref: 'paper',
+        yref: 'paper',
+        x: 0.5,
+        xanchor: 'center',
+        y: -0.25,
+        yanchor: 'center',
+        text: 'The bar chart displays the top 10 bacterial species (OTUs)<br>with the number of samples found in your belly button',
+        showarrow: false
+      }]
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
@@ -113,13 +128,13 @@ function buildCharts(sample) {
       marker: {
         size: bubbleValues,
         color: bubbleValues,
-        colorscale: "Portland"
+        colorscale: "rainbow"
       }
     }];
 
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
-      title: "Bacteria Cultures Per Sample",
+      title: "<b>Bacteria Cultures Per Sample",
       xaxis: { title: "OTU ID" },
       automargin: true,
       hovermode: "closest"
@@ -128,7 +143,7 @@ function buildCharts(sample) {
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, bubbleLayout)
 
-    // DELIVERABLE 3 Requirements
+   // DELIVERABLE 3 Requirements
     // Create a Gauge Chart
 
     // 1. Create a variable that filters the metadata array for the object with the desired sample number.
@@ -156,7 +171,7 @@ function buildCharts(sample) {
           { range: [0, 2], color: "red" },
           { range: [2, 4], color: "orange" },
           { range: [4, 6], color: "yellow" },
-          { range: [6, 8], color: "lightgreen" },
+          { range: [6, 8], color: "lime" },
           { range: [8, 10], color: "green" }
         ],
         dtick: 2
@@ -164,8 +179,18 @@ function buildCharts(sample) {
     }];
 
     // 5. Create the layout for the gauge chart.
-    var gaugeLayout = {
-      automargin: true
+    var gaugeLayout = { 
+      autosize: true,
+      annotations: [{
+        xref: 'paper',
+        yref: 'paper',
+        x: 0.5,
+        xanchor: 'center',
+        y: 0,
+        yanchor: 'center',
+        text: "The gauge displays your belly button weekly washing frequency",
+        showarrow: false
+      }]
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
